@@ -4,57 +4,22 @@
 @endsection
 @section('content')
     <div class="row">
-        <div class="col-xl-3 col-md-6">
-            <div class="card-box widget-user">
-                <div>
-                    <img src="http://127.0.0.1:8000/backend/assets/images/users/avatar-3.jpg" class="img-responsive rounded-circle" alt="user">
-                    <div class="wid-u-info">
-                        <h5 class="mt-0 m-b-5">Chadengle</h5>
-                        <p class="text-muted m-b-5 font-13">coderthemes@gmail.com</p>
-                        <small class="text-warning"><b>Admin</b></small>
+        @foreach ($admins as $admin)
+            <div class="col-xl-3 col-md-6 m-auto">
+                <div class="card-box widget-user">
+                    <div>
+                        <img src="{{ asset('image/profile') }}/{{ $admin->profile }}" class="img-responsive rounded-circle" alt="admin">
+                        <div class="wid-u-info">
+                            <h5 class="mt-0 m-b-5">{{ $admin->name }} <span>{{ auth()->user()->email == $admin->email ? '(YOU)' : '' }}</span> </h5>
+                            <a href="mailto:{{ $admin->email }}">
+                                <p class="text-muted m-b-5 font-13">{{ $admin->email }}</p>
+                            </a>
+                            <small class="text-warning"><b>Admin</b></small>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div><!-- end col -->
-
-        <div class="col-xl-3 col-md-6">
-            <div class="card-box widget-user">
-                <div>
-                    <img src="http://127.0.0.1:8000/backend/assets/images/users/avatar-2.jpg" class="img-responsive rounded-circle" alt="user">
-                    <div class="wid-u-info">
-                        <h5 class="mt-0 m-b-5"> Michael Zenaty</h5>
-                        <p class="text-muted m-b-5 font-13">coderthemes@gmail.com</p>
-                        <small class="text-custom"><b>Support Lead</b></small>
-                    </div>
-                </div>
-            </div>
-        </div><!-- end col -->
-
-        <div class="col-xl-3 col-md-6">
-            <div class="card-box widget-user">
-                <div>
-                    <img src="http://127.0.0.1:8000/backend/assets/images/users/avatar-1.jpg" class="img-responsive rounded-circle" alt="user">
-                    <div class="wid-u-info">
-                        <h5 class="mt-0 m-b-5">Stillnotdavid</h5>
-                        <p class="text-muted m-b-5 font-13">coderthemes@gmail.com</p>
-                        <small class="text-success"><b>Designer</b></small>
-                    </div>
-                </div>
-            </div>
-        </div><!-- end col -->
-
-        <div class="col-xl-3 col-md-6">
-            <div class="card-box widget-user">
-                <div>
-                    <img src="http://127.0.0.1:8000/backend/assets/images/users/avatar-10.jpg" class="img-responsive rounded-circle" alt="user">
-                    <div class="wid-u-info">
-                        <h5 class="mt-0 m-b-5">Tomaslau</h5>
-                        <p class="text-muted m-b-5 font-13">coderthemes@gmail.com</p>
-                        <small class="text-info"><b>Developer</b></small>
-                    </div>
-                </div>
-            </div>
-        </div><!-- end col -->
+            </div><!-- end col -->
+        @endforeach
     </div>
     <!-- end row -->
     <div class="row">

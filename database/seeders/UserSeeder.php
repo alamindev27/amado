@@ -20,6 +20,7 @@ class UserSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'admin@admin.com',
             'password' => Hash::make('admin@admin.com'),
+            'profile' => 'default-image.png',
             'role' => 1,
             'created_at' => Carbon::now()
         ]);
