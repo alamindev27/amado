@@ -49,6 +49,7 @@
                                 </td>
                             </tr>
                         @empty
+                        <tr><td colspan="50">No Category</td></tr>
 
                         @endforelse
 

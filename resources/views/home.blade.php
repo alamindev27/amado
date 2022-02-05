@@ -15,6 +15,7 @@
                                 <p class="text-muted m-b-5 font-13">{{ $admin->email }}</p>
                             </a>
                             <small class="text-warning"><b>Admin</b></small>
+                            <small class="pull-right mt-1">{{ getCountProdut($admin->id) }} Products</small>
                         </div>
                     </div>
                 </div>

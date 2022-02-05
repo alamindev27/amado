@@ -18,6 +18,11 @@
         <link href="{{ asset('backend') }}/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="{{ asset('backend') }}/assets/css/icons.css" rel="stylesheet" type="text/css" />
         <link href="{{ asset('backend') }}/assets/css/style.css" rel="stylesheet" type="text/css" />
+
+
+        <link href="{{ asset('backend') }}/assets/plugins/custombox/dist/custombox.min.css" rel="stylesheet">
+
+
         <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
         <script src="{{ asset('backend') }}/assets/js/modernizr.min.js"></script>
 
@@ -119,6 +124,9 @@
                             </li>
                             <li>
                                 <a href="{{ route('category.index') }}" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Categories </span> </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('products.index') }}" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Products </span> </a>
                             </li>
                             {{-- <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-invert-colors"></i> <span> Categories </span> <span class="menu-arrow"></span></a>
@@ -282,6 +290,12 @@
 
 
 
+
+
+        <!-- Modal-Effect -->
+        <script src="{{ asset('backend') }}/assets/plugins/custombox/dist/custombox.min.js"></script>
+        <script src="{{ asset('backend') }}/assets/plugins/custombox/dist/legacy.min.js"></script>
+        <script src="{{ asset('backend') }}/assets/plugins/tinymce/tinymce.min.js"></script>
 
         @yield('footer_script')
     </body>

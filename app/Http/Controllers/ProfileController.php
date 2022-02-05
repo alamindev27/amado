@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\AdminMail;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
@@ -40,6 +43,16 @@ class ProfileController extends Controller
 
         return back()->with('success', 'Profile update successfull');
     }
+    public function UpdateEmail(Request $request)
+    {
+        $request->validate([
+            'email' => 'required | email',
+        ]);
+        User::where('id', auth()->id())->update([
+            'email' => $request->email
+        ]);
+        return response()->json('email changed');
+    }
 
     public function UpdatePassword(Request $request)
     {
@@ -70,6 +83,25 @@ class ProfileController extends Controller
         {
             return response()->json('current');
         }
+    }
 
+    public function addAdmin(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required | email | unique:users',
+        ]);
+        $password = Str::random(10);
+        $email = $request->email;
+        $login = $request->login;
+        Mail::to($email)->send(new AdminMail($password, $email, $login));
+        User::insert([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($password),
+            'role' => 1,
+            'created_at' => Carbon::now()
+        ]);
+        return response()->json('done');
     }
 }
