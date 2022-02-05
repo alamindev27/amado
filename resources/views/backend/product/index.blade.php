@@ -14,12 +14,13 @@
                 <table class="table m-0" id="datatable">
                     <thead>
                     <tr>
-                        <th>ID</th>
-                        <th style="width: 20%">Product Name</th>
-                        <th style="width: 15%">Category</th>
-                        <th style="width: 15%">Price</th>
-                        <th style="width: 30%">Image</th>
-                        <th style="width: 25%">Action</th>
+                        <th style="width: 10px">ID</th>
+                        <th style="width: 20px">Product Name</th>
+                        <th style="width: 10px">Category</th>
+                        <th style="width: 10px">Brand</th>
+                        <th style="width: 10px">Price</th>
+                        <th style="width: 80px">Image</th>
+                        <th style="width: 25px">Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -30,7 +31,10 @@
                                 <td class="text-center">
                                     <div class="badge badge-success">{{ $product->relationwithcategory->name }}</div>
                                 </td>
-                                <td class="text-center">{{ $product->price }}</td>
+                                <td class="text-center">
+                                    <div class="badge badge-primary">{{ $product->relationwithbrand->name }}</div>
+                                </td>
+                                <td class="text-center">{{ $product->price }} TK.</td>
                                 <td>
                                     <img style="width:40%" src="{{ asset('image/product') }}/{{ $product->image }}" alt="category image">
                                 </td>

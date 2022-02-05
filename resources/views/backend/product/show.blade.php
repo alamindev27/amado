@@ -28,7 +28,7 @@
                         </tr>
                         <tr>
                             <th>Brand</th>
-                            <td> <div class="badge badge-primary">{{ $product->brands }}</div> </td>
+                            <td> <div class="badge badge-primary">{{ $product->relationwithbrand->name }}</div> </td>
                         </tr>
                         <tr>
                             <th>Price</th>

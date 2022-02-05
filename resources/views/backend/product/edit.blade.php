@@ -67,7 +67,12 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="brands">Product Brand</label>
-                            <input class="form-control" id="brands" name="brands" placeholder="Enter product brands" value="{{ $product->brands }}">
+                            <select name="brands" id="brands" class="form-control">
+                                <option value="">-------Select A Brand</option>
+                                    @foreach ($brands as $brand)
+                                        <option {{ $brand->id == $product->brand_id ? 'selected' : '' }} value="{{ Crypt::encrypt($brand->id) }}">{{ $brand->name }}</option>
+                                    @endforeach
+                                </select>
                             <span class="text-danger">
                                 @error('brands')
                                     {{ $message }}

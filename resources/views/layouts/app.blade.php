@@ -128,6 +128,9 @@
                             <li>
                                 <a href="{{ route('products.index') }}" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Products </span> </a>
                             </li>
+                            <li>
+                                <a href="{{ route('brand.index') }}" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Brands </span> </a>
+                            </li>
                             {{-- <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-invert-colors"></i> <span> Categories </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">

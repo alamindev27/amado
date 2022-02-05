@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductThumbnails;
@@ -33,7 +34,8 @@ class ProductController extends Controller
     public function create()
     {
         return view('backend.product.create',[
-            'categories' => Category::where('status', 1)->latest()->get()
+            'categories' => Category::where('status', 1)->latest()->get(),
+            'brands' => Brand::latest()->get()
         ]);
     }
 
@@ -56,6 +58,7 @@ class ProductController extends Controller
             // 'thumbnails' => 'image'
         ],[
             'category_id.required' => 'The category field is required',
+            'brands.required' => 'The brand name field is required',
         ]);
         $productImage = time().Str::random(10).'.'.$request->file('image')->getClientOriginalExtension();
         Image::make($request->file('image'))->resize(723, 747)->save(base_path('public/image/product/'.$productImage));
@@ -64,7 +67,7 @@ class ProductController extends Controller
             'category_id' => Crypt::decrypt($request->category_id),
             'slug' => Str::slug($request->name).'-'.Str::random(5),
             'name' => $request->name,
-            'brands' => $request->brands,
+            'brand_id' => Crypt::decrypt($request->brands),
             'price' => $request->price,
             'image' => $productImage,
             'description' => $request->description,
@@ -112,7 +115,8 @@ class ProductController extends Controller
         return view('backend.product.edit',[
             'product' => Product::where('id', $id)->first(),
             'thumbnails' => ProductThumbnails::where('product_id', $id)->get(),
-            'categories' => Category::where('status', 1)->latest()->get()
+            'categories' => Category::where('status', 1)->latest()->get(),
+            'brands' => Brand::latest()->get()
         ]);
     }
 
@@ -135,6 +139,7 @@ class ProductController extends Controller
             'image' => 'image',
         ],[
             'category_id.required' => 'The category field is required',
+            'brands.required' => 'The brand name field is required',
         ]);
         if($request->hasFile('image'))
         {
@@ -172,7 +177,7 @@ class ProductController extends Controller
             'category_id' => Crypt::decrypt($request->category_id),
             'slug' => Str::slug($request->name).'-'.Str::random(5),
             'name' => $request->name,
-            'brands' => $request->brands,
+            'brand_id' => Crypt::decrypt($request->brands),
             'price' => $request->price,
             'description' => $request->description,
             'stock' => $request->stock,

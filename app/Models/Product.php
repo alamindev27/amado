@@ -12,7 +12,7 @@ class Product extends Model
         'category_id',
         'slug',
         'name',
-        'brands',
+        'brand_id',
         'price',
         'image',
         'description',
@@ -25,5 +25,9 @@ class Product extends Model
     public function relationwithuser()
     {
         return $this->hasOne(User::class, 'id', 'user_id');
+    }
+    public function relationwithbrand()
+    {
+        return $this->hasOne(Brand::class, 'id', 'brand_id');
     }
 }

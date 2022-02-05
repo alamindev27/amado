@@ -17,8 +17,8 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('category_id');
+            $table->integer('brand_id');
             $table->string('slug')->unique();
-            $table->string('brands');
             $table->string('name');
             $table->integer('price');
             $table->string('image');
