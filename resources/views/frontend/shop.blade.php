@@ -1,6 +1,6 @@
 @extends('layouts.app_frontend')
 @section('title')
-    <title> Home</title>
+    <title> Shop | Category | {{ $title }}</title>
 @endsection
 @section('products')
     <div class="shop_sidebar_area">
@@ -86,13 +86,28 @@
                             </div>
                             <div class="view-product d-flex align-items-center">
                                 <p>View</p>
-                                <form action="#" method="get">
-                                    <select name="select" id="viewProduct" style="display: none;">
-                                        <option value="value">12</option>
-                                        <option value="value">24</option>
-                                        <option value="value">48</option>
-                                        <option value="value">96</option>
-                                    </select><div class="nice-select" tabindex="0"><span class="current">12</span><ul class="list"><li data-value="value" class="option selected focus">12</li><li data-value="value" class="option">24</li><li data-value="value" class="option">48</li><li data-value="value" class="option">96</li></ul></div>
+                                <form action="" method="post" id="productAmountForm">
+                                    {{-- <select name="select" id="productAmount" style="display: none;">
+                                        <option value="12">12</option>
+                                        <option value="24">24</option>
+                                        <option value="40">48</option>
+                                        <option value="96">96</option>
+                                    </select> --}}
+                                    {{-- <div class="nice-select" tabindex="0">
+                                        <span class="current">12</span>
+                                        <ul class="list">
+                                            <li data-value="12" class="option selected focus">12</li>
+                                            <li data-value="24" class="option">24</li>
+                                            <li data-value="48" class="option">48</li>
+                                            <li data-value="96" class="option">96</li>
+                                        </ul>
+                                    </div> --}}
+                                    <select id="test">
+                                        <option value="12">12</option>
+                                        <option value="24">24</option>
+                                        <option value="24">48</option>
+                                        <option value="24">96</option>
+                                    </select>
                                 </form>
                             </div>
                         </div>
@@ -149,14 +164,16 @@
                     <!-- Pagination -->
                     <nav aria-label="navigation">
                         <ul class="pagination justify-content-end mt-50">
-                            <li class="page-item active"><a class="page-link" href="#">01.</a></li>
-                            <li class="page-item"><a class="page-link" href="#">02.</a></li>
-                            <li class="page-item"><a class="page-link" href="#">03.</a></li>
-                            <li class="page-item"><a class="page-link" href="#">04.</a></li>
+                            {{ $products->links() }}
                         </ul>
                     </nav>
                 </div>
             </div>
         </div>
     </div>
+@endsection
+@section('footer_script')
+    <script>
+
+    </script>
 @endsection
