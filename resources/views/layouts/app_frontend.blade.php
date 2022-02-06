@@ -16,6 +16,7 @@
     <!-- Core Style CSS -->
     <link rel="stylesheet" href="{{ asset('frontend') }}/css/core-style.css">
     <link rel="stylesheet" href="{{ asset('frontend') }}/css/style.css">
+    <link rel="stylesheet" href="{{ asset('frontend') }}/css/font-awesome.min.css">
 
 </head>
 
@@ -68,7 +69,7 @@
             <!-- Amado Nav -->
             <nav class="amado-nav">
                 <ul>
-                    <li class="active"><a href="{{ url('/') }}">Home</a></li>
+                    <li class="{{ Request::url() == url('/') ? 'active ' : '' }}"><a href="{{ url('/') }}">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>
                     <li><a href="product-details.html">Product</a></li>
                     <li><a href="cart.html">Cart</a></li>
@@ -82,9 +83,12 @@
             </div>
             <!-- Cart Menu -->
             <div class="cart-fav-search mb-100">
-                <a href="cart.html" class="cart-nav"><img src="{{ asset('frontend') }}/img/core-img/cart.png" alt=""> Cart <span>(0)</span></a>
-                <a href="#" class="fav-nav"><img src="{{ asset('frontend') }}/img/core-img/favorites.png" alt=""> Favourite</a>
-                <a href="#" class="search-nav"><img src="{{ asset('frontend') }}/img/core-img/search.png" alt=""> Search</a>
+                <a href="{{ route('all.cart') }}" class="cart-nav" style="{{ Request::url() == route('all.cart') ? 'color: #fbb710 ' : '' }}">
+                    <img src="{{ asset('frontend') }}/img/core-img/cart.png" alt=""> Cart <span>({{ getCartCount() }})</span></a>
+                <a href="#" class="fav-nav">
+                    <img src="{{ asset('frontend') }}/img/core-img/favorites.png" alt=""> Favourite</a>
+                <a href="#" class="search-nav">
+                    <img src="{{ asset('frontend') }}/img/core-img/search.png" alt=""> Search</a>
             </div>
             <!-- Social Button -->
             <div class="social-info d-flex justify-content-between">
@@ -309,6 +313,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="{{ asset('frontend') }}/js/plugins.js"></script>
     <!-- Active js -->
     <script src="{{ asset('frontend') }}/js/active.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @yield('footer_script')
 </body>
 

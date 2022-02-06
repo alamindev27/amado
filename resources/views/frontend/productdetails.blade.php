@@ -62,7 +62,7 @@
                                 <i class="fa fa-star" aria-hidden="true"></i>
                             </div>
                             <div class="review">
-                                <a href="#">Write A Review</a>
+                                <a href="javascript:viod(0)">Write A Review</a>
                             </div>
                         </div>
                         <!-- Avaiable -->
@@ -88,7 +88,11 @@
                             </div>
                         </div>
                         {{-- <button type="submit" name="addtocart" value="5" class="btn amado-btn">Add to cart</button> <br><br> --}}
-                        <button type="submit" name="addtocart" value="5" class="btn amado-btn">Add to cart</button>
+                        @auth
+                            <button type="submit" name="addtocart" value="5" class="btn amado-btn">Add to cart</button>
+                        @else
+                            <a href="{{ route('login') }}" name="addtocart" value="5" class="btn amado-btn">Add to cart</a>
+                        @endauth
                     </form>
 
                 </div>
@@ -103,10 +107,40 @@
 
 <script>
     $.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $('#addToCartForm').submit(function(e){
+            e.preventDefault();
+        var quentity = $('#quentity').val();
+        $.ajax({
+            type:'POST',
+            url: "/add/to/cart",
+            data:{quentity:quentity, productId:'{{ $product->id }}'},
+            success:function(data){
+                // console.log(data);
+                if(data == 'stockError')
+                {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Stock amount not available!'
+                    });
+                }
+                if(data == 'success')
+                {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Cart added successfull',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            }
+        });
+    });
 </script>
 
 @endsection

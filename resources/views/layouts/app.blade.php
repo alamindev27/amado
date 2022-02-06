@@ -290,11 +290,6 @@
         <script src="{{ asset('backend') }}/assets/js/jquery.app.js"></script>
         <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-
-
-
-
         <!-- Modal-Effect -->
         <script src="{{ asset('backend') }}/assets/plugins/custombox/dist/custombox.min.js"></script>
         <script src="{{ asset('backend') }}/assets/plugins/custombox/dist/legacy.min.js"></script>

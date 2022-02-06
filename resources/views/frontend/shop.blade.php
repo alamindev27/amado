@@ -147,7 +147,9 @@
                                     <i class="fa fa-star" aria-hidden="true"></i>
                                 </div>
                                 <div class="cart">
-                                    <a href="cart.html" data-toggle="tooltip" data-placement="left" title="" data-original-title="Add to Cart"><img src="{{ asset('frontend') }}/img/core-img/cart.png" alt=""></a>
+                                    {{-- <a href="" data-toggle="tooltip" data-placement="left" title="" data-original-title="Add to Wishlist">
+                                        <i class="fa fa-heart"></i>
+                                    </a> --}}
                                 </div>
                             </div>
                         </div>

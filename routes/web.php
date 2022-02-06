@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
@@ -18,6 +19,8 @@ Route::get('product/{slug}', [FrontendController::class, 'productDetails'])->nam
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::post('/add/to/cart', [CartController::class, 'index'])->name('cart');
+Route::get('/cart', [CartController::class, 'cart'])->name('all.cart');
 
 
 Route::resource('category', CategoryController::class);
