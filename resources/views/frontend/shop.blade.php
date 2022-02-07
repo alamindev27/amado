@@ -47,12 +47,12 @@
 
             <div class="widget-desc">
                 <div class="slider-range">
-                    <div data-min="10" data-max="1000" data-unit="$" class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-value-min="10" data-value-max="1000" data-label-result="">
+                    <div data-min="10" data-max="2000" data-unit="$" class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-value-min="10" data-value-max="1000" data-label-result="">
                         <div class="ui-slider-range ui-widget-header ui-corner-all"></div>
                         <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 0%;"></span>
                         <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 100%;"></span>
                     <div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 0%; width: 100%;"></div></div>
-                    <div class="range-price">$10 - $1000</div>
+                    <div class="range-price">$10 - $2000</div>
                 </div>
             </div>
         </div>

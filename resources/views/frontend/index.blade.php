@@ -26,3 +26,17 @@
     </div>
     <!-- Product Catagories Area End -->
 @endsection
+
+@section('footer_script')
+@if (session('success'))
+        <script>
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: '{{ session('success') }}',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        </script>
+    @endif
+@endsection

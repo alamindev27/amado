@@ -12,6 +12,7 @@
         <form class="form-horizontal m-t-20" action="{{ route('login') }}" method="POST">
             @csrf
 
+
             <div class="form-group">
                 <div class="col-xs-12">
                     <input class="form-control @error('email') is-invalid @enderror" type="text" name="email" placeholder="Email">

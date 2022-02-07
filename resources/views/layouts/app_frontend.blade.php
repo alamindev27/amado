@@ -70,21 +70,31 @@
             <nav class="amado-nav">
                 <ul>
                     <li class="{{ Request::url() == url('/') ? 'active ' : '' }}"><a href="{{ url('/') }}">Home</a></li>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li><a href="product-details.html">Product</a></li>
-                    <li><a href="cart.html">Cart</a></li>
-                    <li><a href="checkout.html">Checkout</a></li>
+                    <li class=""><a href="">About</a></li>
+                    <li class=""><a href="">Blog</a></li>
+                    <li class=""><a href="">Contact Us</a></li>
+                    <li class=""><a href="">Trums and Condition</a></li>
                 </ul>
             </nav>
             <!-- Button Group -->
             <div class="amado-btn-group mt-30 mb-100">
-                <a href="#" class="btn amado-btn mb-15">%Discount%</a>
+                @auth
+                    <a href="#" class="btn amado-btn mb-15">My Account</a>
+
+                    <a href="{{ route('logout') }}"  class="btn amado-btn mb-15" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                @else
+                    <a href="{{ route('register') }}" class="btn amado-btn mb-15">Register</a>
+                    <a href="{{ route('login') }}" class="btn amado-btn mb-15">Login</a>
+                @endauth
                 <a href="#" class="btn amado-btn active">New this week</a>
             </div>
             <!-- Cart Menu -->
             <div class="cart-fav-search mb-100">
                 <a href="{{ route('all.cart') }}" class="cart-nav" style="{{ Request::url() == route('all.cart') ? 'color: #fbb710 ' : '' }}">
-                    <img src="{{ asset('frontend') }}/img/core-img/cart.png" alt=""> Cart <span>({{ getCartCount() }})</span></a>
+                    <img src="{{ asset('frontend') }}/img/core-img/cart.png" alt=""> Cart <span id="cRf">({{ getCartCount() }})</span></a>
                 <a href="#" class="fav-nav">
                     <img src="{{ asset('frontend') }}/img/core-img/favorites.png" alt=""> Favourite</a>
                 <a href="#" class="search-nav">

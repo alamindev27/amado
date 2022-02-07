@@ -28,5 +28,6 @@ class HomeController extends Controller
         return view('home',[
             'admins'=>User::where('role', 1)->get()
         ]);
+
     }
 }

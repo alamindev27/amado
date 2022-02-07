@@ -25,6 +25,7 @@
 
         <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
         <script src="{{ asset('backend') }}/assets/js/modernizr.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
     </head>
     <body class="fixed-left">
@@ -130,6 +131,9 @@
                             </li>
                             <li>
                                 <a href="{{ route('brand.index') }}" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Brands </span> </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('country') }}" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Countries </span> </a>
                             </li>
                             {{-- <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-invert-colors"></i> <span> Categories </span> <span class="menu-arrow"></span></a>
@@ -294,6 +298,7 @@
         <script src="{{ asset('backend') }}/assets/plugins/custombox/dist/custombox.min.js"></script>
         <script src="{{ asset('backend') }}/assets/plugins/custombox/dist/legacy.min.js"></script>
         <script src="{{ asset('backend') }}/assets/plugins/tinymce/tinymce.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
         @yield('footer_script')
     </body>

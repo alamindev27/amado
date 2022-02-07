@@ -3,14 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
 class CategoryController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
