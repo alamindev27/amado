@@ -95,7 +95,7 @@ class CheckoutController extends Controller
         }
         else
         {
-            return 'online';
+            return redirect('pay');
         }
 
     }
